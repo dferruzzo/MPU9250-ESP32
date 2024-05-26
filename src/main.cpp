@@ -1,3 +1,30 @@
+/**
+ * @file main.cpp
+ * @brief Este arquivo contém o código-fonte para um projeto ESP32 que utiliza o sensor MPU9250 para coletar dados de aceleração, giroscópio, magnetômetro e temperatura. Os dados coletados são enviados para um broker MQTT.
+ * 
+ * @library Arduino.h: Biblioteca padrão do Arduino.
+ * @library ArduinoJson.h e ArduinoJson.hpp: Bibliotecas para manipulação de JSON.
+ * @library MPU9250.h: Biblioteca para manipulação do sensor MPU9250.
+ * @library Wire.h: Biblioteca para comunicação I2C.
+ * @library WiFi.h: Biblioteca para manipulação de WiFi.
+ * @library sMQTTBroker.h: Biblioteca para manipulação de broker MQTT.
+ * @library PubSubClient.h: Biblioteca para cliente MQTT.
+ * 
+ * @var sMQTTBroker broker: Instância do broker MQTT.
+ * @var IPAddress local_IP: IP local.
+ * @var IPAddress gateway: Gateway.
+ * @var IPAddress subnet: Subnet.
+ * @var const char* ssid: SSID da rede WiFi.
+ * @var const char* password: Senha da rede WiFi.
+ * @var const unsigned short mqttPort: Porta do broker MQTT.
+ * @var const char* topic: Tópico MQTT onde os dados serão publicados.
+ * @var const char ALIAS1[] a ALIAS10[]: Aliases para as variáveis da plataforma.
+ * @var float ax, ay, az, gx, gy, gz, mx, my, mz, temperature: Variáveis para armazenar os dados do sensor.
+ * @var MPU9250 IMU: Instância do sensor MPU9250.
+ * @var int status: Variável para armazenar o status do sensor.
+ * 
+ * @function void setup(): Função de configuração inicial do ESP32.
+ */
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <ArduinoJson.hpp>

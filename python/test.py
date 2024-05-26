@@ -1,16 +1,19 @@
 # https://www.open-electronics.org/guest_projects/real-time-data-plotting-of-iot-sensor-using-python/
-import time
-import math
+#import time
+#import math
 from collections import deque , defaultdict
 
 import matplotlib.animation as animation
 from matplotlib import pyplot as plt
 
-import threading
+import mqtt_client
+
+# import threading
 
 from random import randint
 
 from statistics import *
+
 
 class DataPlot:
     def __init__(self, max_entries = 20):
@@ -56,15 +59,15 @@ def main():
     try:
         count=0
         while True:
-            count+=1
-            data.add(count, 30 + 1/randint(1,5) , 35 + randint(1,5))
-            dataPlotting.plot(data)
-
-            plt.pause(0.001)
+            #count+=1
+            #data.add(count, 30 + 1/randint(1,5) , 35 + randint(1,5))
+            #dataPlotting.plot(data)
+            #plt.pause(0.001)
+            mqtt_client.run()
+            
     except KeyboardInterrupt:
-        print('nnKeyboard exception received. Exiting.')
+        print('\n\nKeyboard exception received. Exiting.\n')
         plt.close()
-        ser.close()
         exit()
-
+#
 if __name__ == "__main__": main()
