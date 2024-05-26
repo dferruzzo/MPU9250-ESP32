@@ -11,7 +11,7 @@ Projeto para a determinação da atitude utilizando MPU-9250 e ESP32. São lidos
 
 Utilizando filtro de Kalman, são gerados os seguintes dados:
 
-* [ ] atitude em ângulos de Euler, (\phi,~\theta,~\psi), rolagem (roll), arfagem (pitch), guinada (yaw).
+* [ ] atitude em ângulos de Euler, ($\phi$,$\theta$,$\psi$), rolagem (roll), arfagem (pitch), guinada (yaw).
 * [ ] atitude em quaterniões.
 * [ ] taxas (p,q,r).
 
