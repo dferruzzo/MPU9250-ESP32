@@ -1,4 +1,4 @@
-# MPU-9250 e ESP32
+# Determinação de atitude utilizando MPU-9250 e ESP32
 
 ## Descrição do Projeto
 
