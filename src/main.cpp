@@ -57,6 +57,7 @@ const char ALIAS7[] = "MagX";
 const char ALIAS8[] = "MagY";
 const char ALIAS9[] = "MagZ";
 const char ALIAS10[] = "Temp";
+const char ALIAS11[] = "Time";
 
 float ax, ay, az, gx, gy, gz, mx, my, mz, temperature;
 
@@ -136,7 +137,7 @@ void loop() {
   temperature = IMU.getTemperature_C();
 
   //Cria o objeto dinamico "json" com tamanho "10" para a biblioteca
-  DynamicJsonDocument json(10);
+  DynamicJsonDocument json(11);
   //Atrela ao objeto "json" as leitura do sensor com os Aliases definidos
   json[ALIAS1] = ax;
   json[ALIAS2] = ay;
@@ -148,6 +149,7 @@ void loop() {
   json[ALIAS8] = my;
   json[ALIAS9] = mz;
   json[ALIAS10] = temperature;
+  json[ALIAS11] = millis();   // Adiciona o carimbo de data/hora ao objeto JSON
 
   //Mede o tamanho da mensagem "json" e atrela o valor somado em uma unidade ao objeto "tamanho_mensagem"
   size_t tamanho_mensagem = measureJson(json) + 1;
@@ -157,13 +159,12 @@ void loop() {
 
   //Copia o objeto "json" para a variavel "mensagem" e com o "tamanho_mensagem"
   serializeJson(json, mensagem, tamanho_mensagem);
-
+  
   //Publica a variavel "mensagem" no servidor utilizando a variavel "TOPICO"
   Serial.println("");
   Serial.print("Mensagem enviada: ");
-  Serial.println(mensagem);
+  Serial.print(mensagem);
   broker.publish(topic, mensagem);
   delay(1000);
-
 }
 
