@@ -1,3 +1,9 @@
+"""
+    Description: Este script se conecta a um servidor MQTT e plota os valores recebidos em tempo real.
+    Returns:
+        _type_: _description_
+"""
+# TODO: Try Grafana with InfluxDB
 import paho.mqtt.client as mqtt
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -51,11 +57,13 @@ def init():
     ax.set_xlim(0, data.maxlen)
     #ax.set_ylim(auto=True)  # Ajuste os limites do eixo Y conforme necessário
     line.set_ydata([0] * data.maxlen)
+    ax.set_xlabel("Tempo (s)")
     return line,
 
 # Função para atualizar o gráfico
 def update(frame):
     line.set_ydata(data)
+    ax.set_ylim(min(data), max(data))
     ax.set_xticks(range(0,BUFFER_SIZE))
     ax.xaxis.set_ticklabels(time_labels, rotation=45)
     return line,
