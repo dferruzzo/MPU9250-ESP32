@@ -1,5 +1,5 @@
 # Determinação de atitude utilizando MPU-9250 e ESP32
-
+Readme update.
 ## Descrição do Projeto
 
 Projeto para a determinação da atitude utilizando MPU-9250 e ESP32. São lidos os seguintes  dados:
