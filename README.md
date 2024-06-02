@@ -9,6 +9,8 @@ Projeto para a determinação da atitude utilizando MPU-9250 e ESP32. São lidos
 * Magnetômetro, 3 eixos,
 * Temperatura em Celsius.
 
+![grafana-screenshot.jpeg](grafana-screenshot.jpeg)
+
 Utilizando filtro de Kalman, são gerados os seguintes dados:
 
 * [ ] atitude em ângulos de Euler, rolagem (roll), arfagem (pitch), guinada (yaw).
@@ -37,7 +39,7 @@ Implemente o circuito mostrado.
 
 * [x] Transmitir dados via WiFi.
 * [x] Utilizar protocolo MQTT.
-* [ ] Finalizar visualização em tempo-real via WiFi.
+* [x] Finalizar visualização em tempo-real via WiFi. Utilizar Grafana.
 * [ ] Implementar filtro de Kalman.
 * [ ] Implementar fusão sensorial.
 
