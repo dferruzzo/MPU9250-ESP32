@@ -2,12 +2,14 @@
 Readme update.
 ## Descrição do Projeto
 
-Projeto para a determinação da atitude utilizando MPU-9250 e ESP32. São lidos os seguintes  dados:
+Projeto para a determinação da atitude utilizando MPU-9250 e ESP32. São publicados os seguintes dados via WIFI.
 
 * Giroscópio, 3 eixos,
 * Acelerômetro, 3 eixos,
 * Magnetômetro, 3 eixos,
 * Temperatura em Celsius.
+
+Podem ser visualizados utilizando [Grafana](https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1).
 
 ![grafana-screenshot.jpeg](grafana-screenshot.jpeg)
 

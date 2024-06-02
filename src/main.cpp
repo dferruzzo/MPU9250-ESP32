@@ -33,6 +33,10 @@
 #include <WiFi.h>
 #include"sMQTTBroker.h"
 #include <PubSubClient.h>
+#include "config.h" /* Arquivo de configuração com as credenciais da rede WiFi */
+
+const char* ssid = WIFI_SSID;
+const char* password = WIFI_PASSWORD;
 
 sMQTTBroker broker;
 
@@ -40,8 +44,6 @@ IPAddress local_IP(192, 168, 0, 73); //Defina o IP de acordo com a sua rede
 IPAddress gateway(192, 168, 0, 1);
 IPAddress subnet(255, 255, 0, 0);
 
-const char* ssid = "MILENA";
-const char* password = "juli1234";
 const unsigned short mqttPort = 1883;
 
 const char* topic = "Dados";
