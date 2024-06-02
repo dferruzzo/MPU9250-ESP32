@@ -2,6 +2,7 @@
     Description: Este script se conecta a um servidor MQTT e plota os valores recebidos em tempo real.
     Returns:
         _type_: _description_
+    Recommendations: Use Grafana para visualização de dados em tempo real em lugar desse script.
 """
 # TODO: Try Grafana with InfluxDB
 import paho.mqtt.client as mqtt

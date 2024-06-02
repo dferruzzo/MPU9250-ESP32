@@ -45,6 +45,12 @@ const char* password = "juli1234";
 const unsigned short mqttPort = 1883;
 
 const char* topic = "Dados";
+const char* topic1 = "Giroscopio";
+const char* topic2 = "Acelerometro";
+const char* topic3 = "Magnetometro";
+const char* topic4 = "Temperatura";
+
+
 
 //Declaracao das variaveis que armazenam os Aliases das variaveis da plataforma
 const char ALIAS1[] = "AccX";
@@ -137,6 +143,7 @@ void loop() {
   temperature = IMU.getTemperature_C();
 
   //Cria o objeto dinamico "json" com tamanho "10" para a biblioteca
+  /*
   DynamicJsonDocument json(11);
   //Atrela ao objeto "json" as leitura do sensor com os Aliases definidos
   json[ALIAS1] = ax;
@@ -150,21 +157,89 @@ void loop() {
   json[ALIAS9] = mz;
   json[ALIAS10] = temperature;
   json[ALIAS11] = millis();   // Adiciona o carimbo de data/hora ao objeto JSON
-
+  //
   //Mede o tamanho da mensagem "json" e atrela o valor somado em uma unidade ao objeto "tamanho_mensagem"
   size_t tamanho_mensagem = measureJson(json) + 1;
-
   //Cria a string "mensagem" de acordo com o tamanho do objeto "tamanho_mensagem"
   char mensagem[tamanho_mensagem];
-
   //Copia o objeto "json" para a variavel "mensagem" e com o "tamanho_mensagem"
   serializeJson(json, mensagem, tamanho_mensagem);
-  
   //Publica a variavel "mensagem" no servidor utilizando a variavel "TOPICO"
   Serial.println("");
   Serial.print("Mensagem enviada: ");
   Serial.print(mensagem);
   broker.publish(topic, mensagem);
-  delay(1000);
+  */
+  // Giroscopio
+  DynamicJsonDocument json1(3);
+  //Atrela ao objeto "json" as leitura do sensor com os Aliases definidos
+  json1[ALIAS4] = gx;
+  json1[ALIAS5] = gy;
+  json1[ALIAS6] = gz;
+  //Mede o tamanho da mensagem "json" e atrela o valor somado em uma unidade ao objeto "tamanho_mensagem"
+  size_t tamanho_mensagem_1 = measureJson(json1) + 1;
+  //Cria a string "mensagem" de acordo com o tamanho do objeto "tamanho_mensagem"
+  char mensagem_1[tamanho_mensagem_1];
+  //Copia o objeto "json" para a variavel "mensagem" e com o "tamanho_mensagem"
+  serializeJson(json1, mensagem_1, tamanho_mensagem_1);
+  //Publica a variavel "mensagem" no servidor utilizando a variavel "TOPICO"
+  Serial.println("");
+  Serial.print("Mensagem "); Serial.print(topic1); Serial.println(" enviada.");  
+  Serial.print(mensagem_1);
+  broker.publish(topic1, mensagem_1);
+  //
+  // Aceleometro
+  DynamicJsonDocument json2(3);
+  //Atrela ao objeto "json" as leitura do sensor com os Aliases definidos
+  json2[ALIAS1] = ax;
+  json2[ALIAS2] = ay;
+  json2[ALIAS3] = az;
+  //Mede o tamanho da mensagem "json" e atrela o valor somado em uma unidade ao objeto "tamanho_mensagem"
+  size_t tamanho_mensagem_2 = measureJson(json2) + 1;
+  //Cria a string "mensagem" de acordo com o tamanho do objeto "tamanho_mensagem"
+  char mensagem_2[tamanho_mensagem_2];
+  //Copia o objeto "json" para a variavel "mensagem" e com o "tamanho_mensagem"
+  serializeJson(json2, mensagem_2, tamanho_mensagem_2);
+  //Publica a variavel "mensagem" no servidor utilizando a variavel "TOPICO"
+  Serial.println("");
+  Serial.print("Mensagem "); Serial.print(topic2); Serial.println(" enviada.");  
+  Serial.print(mensagem_2);
+  broker.publish(topic2, mensagem_2);
+  //
+  // Magnetometro
+  DynamicJsonDocument json3(3);
+  //Atrela ao objeto "json" as leitura do sensor com os Aliases definidos
+  json3[ALIAS7] = mx;
+  json3[ALIAS8] = my;
+  json3[ALIAS9] = mz;
+  //Mede o tamanho da mensagem "json" e atrela o valor somado em uma unidade ao objeto "tamanho_mensagem"
+  size_t tamanho_mensagem_3 = measureJson(json3) + 1;
+  //Cria a string "mensagem" de acordo com o tamanho do objeto "tamanho_mensagem"
+  char mensagem_3[tamanho_mensagem_3];
+  //Copia o objeto "json" para a variavel "mensagem" e com o "tamanho_mensagem"
+  serializeJson(json3, mensagem_3, tamanho_mensagem_3);
+  //Publica a variavel "mensagem" no servidor utilizando a variavel "TOPICO"
+  Serial.println("");
+  Serial.print("Mensagem "); Serial.print(topic3); Serial.println(" enviada.");  
+  Serial.print(mensagem_3);
+  broker.publish(topic3, mensagem_3);
+  //
+  // Temperatura
+  DynamicJsonDocument json4(1);
+  //Atrela ao objeto "json" as leitura do sensor com os Aliases definidos
+  json4[ALIAS10] = temperature;
+  //Mede o tamanho da mensagem "json" e atrela o valor somado em uma unidade ao objeto "tamanho_mensagem"
+  size_t tamanho_mensagem_4 = measureJson(json4) + 1;
+  //Cria a string "mensagem" de acordo com o tamanho do objeto "tamanho_mensagem"
+  char mensagem_4[tamanho_mensagem_4];
+  //Copia o objeto "json" para a variavel "mensagem" e com o "tamanho_mensagem"
+  serializeJson(json4, mensagem_4, tamanho_mensagem_4);
+  //Publica a variavel "mensagem" no servidor utilizando a variavel "TOPICO"
+  Serial.println("");
+  Serial.print("Mensagem "); Serial.print(topic4); Serial.println(" enviada.");
+  Serial.print(mensagem_4);
+  broker.publish(topic4, mensagem_4);
+  //
+  delay(500);
 }
 
