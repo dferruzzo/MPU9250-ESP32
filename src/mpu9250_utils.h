@@ -4,9 +4,9 @@
 #include <Arduino.h>
 #include "MPU9250.h"
 
-// Constantes para o intervalo de impressão
-extern const unsigned long PRINT_INTERVAL;
-extern unsigned long lastPrintTime;
+// Substitua a declaração da variável global por:
+extern unsigned long lastPrintTime;  // Apenas declara, não define
+extern const unsigned long PRINT_INTERVAL; // Use extern também para a constante
 
 /**
  * Configura os parâmetros do sensor MPU9250

@@ -1,8 +1,10 @@
 #include "mpu9250_utils.h"
 
-// Definição das variáveis globais
+// Definição apenas da constante
 const unsigned long PRINT_INTERVAL = 500;
-unsigned long lastPrintTime = 0;
+
+// Removemos a definição de lastPrintTime aqui,
+// pois ela já está definida em main.cpp
 
 void configureSensor(MPU9250 &sensor) {
   // setting the accelerometer full scale range to +/-8G 
